@@ -1,0 +1,688 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+
+/* dropdown menu */
+.dropbtn {
+  background-color: #888888;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  ;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {background-color: #676767;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #676767;}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Corben', Georgia, Times, serif;
+}
+p, div {
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+}
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    background: url('../assets/background_image.jpg');
+    background-color : #ffffff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.game-quiz-container{
+    width: 40rem;
+    height: 30rem;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px;
+}
+
+.game-details-container{
+    width: 80%;
+    height: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.game-details-container h1{
+    font-size: 1.2rem;
+}
+
+.game-question-container{
+    width: 80%;
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid darkgray;
+    border-radius: 25px;
+}
+
+.game-question-container h1{
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 3px;
+}
+
+.game-options-container{
+    width: 80%;
+    height: 12rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.game-options-container span{
+    width: 45%;
+    height: 3rem;
+    border: 2px solid darkgray;
+    border-radius: 20px;
+    overflow: hidden;
+}
+span label{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    font-weight: 600;
+    color: rgb(22, 22, 22);
+}
+
+span label:hover{
+    -ms-transform: scale(1.12);
+    -webkit-transform: scale(1.12);
+    transform: scale(1.12);
+    color: rgb(60, 60, 60);
+}
+
+input[type="radio"] {
+    position: relative;
+    display: none;
+}
+
+
+input[type=radio]:checked ~ .option {
+    background: paleturquoise;
+}
+
+.next-button-container{
+    width: 50%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+}
+.next-button-container button{
+    width: 8rem;
+    height: 2rem;
+    border-radius: 10px;
+    background: none;
+    color: rgb(25, 25, 25);
+    font-weight: 600;
+    border: 2px solid gray;
+    cursor: pointer;
+    outline: none;
+}
+.next-button-container button:hover{
+    background-color: rgb(143, 93, 93);
+}
+
+.modal-container{
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(255, 255, 255); 
+    background-color: rgba(255, 255, 255, 0.4); 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    -webkit-animation: fadeIn 1.2s ease-in-out;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.modal-content-container{
+    height: 20rem;
+    width: 25rem;
+    background-color: rgb(43, 42, 42);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 25px;
+}
+
+.modal-content-container h1{
+    font-size: 1.3rem;
+    height: 3rem;
+    color: lightgray;
+    text-align: center;
+}
+
+.grade-details{
+    width: 15rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.grade-details p{
+    color: white;
+    text-align: center;
+}
+
+.modal-button-container{
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-button-container button{
+    width: 10rem;
+    height: 2rem;
+    background: none;
+    outline: none;
+    border: 1px solid rgb(252, 242, 241);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.modal-button-container button:hover{
+    background-color: rgb(83, 82, 82);
+}
+
+@media(min-width : 300px) and (max-width : 350px){
+    .game-quiz-container{
+        width: 90%;
+        height: 80vh;
+     }
+     .game-details-container h1{
+        font-size: 0.8rem;
+     }
+
+     .game-question-container{
+        height: 6rem;
+     }
+     .game-question-container h1{
+       font-size: 0.9rem;
+    }
+
+    .game-options-container span{
+        width: 90%;
+        height: 2.5rem;
+    }
+    .game-options-container span label{
+        font-size: 0.8rem;
+    }
+    .modal-content-container{
+        width: 90%;
+        height: 25rem;
+    }
+
+    .modal-content-container h1{
+        font-size: 1.2rem;
+    }
+}
+
+@media(min-width : 350px) and (max-width : 700px){
+   .game-quiz-container{
+       width: 90%;
+       height: 80vh;
+    }
+    .game-details-container h1{
+        font-size: 1rem;
+    }
+
+    .game-question-container{
+        height: 8rem;
+    }
+
+    .game-question-container h1{
+        font-size: 0.9rem;
+     }
+
+    .game-options-container span{
+        width: 90%;
+    }
+    .modal-content-container{
+        width: 90%;
+        height: 25rem;
+    }
+    .modal-content-container h1{
+        font-size: 1.2rem;
+    }
+}
+
+
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+        </style>
+
+        <script>
+            const questions = [
+    {
+        question: "What is the main goal of the computational methods being discussed?  ",
+        optionA: "Speed up computers for non-chemical apps",
+        optionB: "Model and predict molecular behavior with algorithms",
+        optionC: "Exactly reproduce every experimental measurement",
+        optionD: "Replace all lab experiments; eliminate wet labs",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "In the COVID‑19 example, what model did the researchers use for the main simulation?",
+        optionA: "AMBER",
+        optionB: "CHARMM36‑based classical MD",
+        optionC: "GROMOS",
+        optionD: "ReaxFF",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "In the lithium‑ion battery SEI formation example, which reactive force field did the researchers use?",
+        optionA: "AMBER",
+        optionB: "CHARMM36",
+        optionC: "GROMOS",
+        optionD: "ReaxFF",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "According to the text, what does MD stand for?",
+        optionA: "Molecular Density",
+        optionB: "Molecular Dynamics",
+        optionC: "Molecular Design",
+        optionD: "Molecular Division",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "What is the key difference between Molecular Dynamics (MD) and Monte Carlo (MC) in the text?",
+        optionA: "MD follows time, but MC does not",
+        optionB: "Both MD and MC follow time in the same way",
+        optionC: "MC follows time, but MD does not",
+        optionD: "Neither MD nor MC can be used for simulations",
+        correctOption: "optionA"
+    },
+
+]
+
+
+let shuffledQuestions = []
+
+function handleQuestions() { 
+    while (shuffledQuestions.length <= 4) {
+        const random = questions[Math.floor(Math.random() * questions.length)]
+        if (!shuffledQuestions.includes(random)) {
+            shuffledQuestions.push(random)
+        }
+    }
+}
+
+
+let questionNumber = 1
+let playerScore = 0
+let wrongAttempt = 0
+let indexNumber = 0
+
+function NextQuestion(index) {
+    handleQuestions()
+    const currentQuestion = shuffledQuestions[index]
+    document.getElementById("question-number").innerHTML = questionNumber
+    document.getElementById("player-score").innerHTML = playerScore
+    document.getElementById("display-question").innerHTML = currentQuestion.question;
+    document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
+    document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
+    document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
+    document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
+
+}
+
+
+function checkForAnswer() {
+    const currentQuestion = shuffledQuestions[indexNumber] //gets current Question 
+    const currentQuestionAnswer = currentQuestion.correctOption //gets current Question's answer
+    const options = document.getElementsByName("option"); //gets all elements in dom with name of 'option' (in this the radio inputs)
+    let correctOption = null
+
+    options.forEach((option) => {
+        if (option.value === currentQuestionAnswer) {
+            //get's correct's radio input with correct answer
+            correctOption = option.labels[0].id
+        }
+    })
+
+    //checking to make sure a radio input has been checked or an option being chosen
+    if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
+        document.getElementById('option-modal').style.display = "flex"
+    }
+
+    //checking if checked radio button is same as answer
+    options.forEach((option) => {
+        if (option.checked === true && option.value === currentQuestionAnswer) {
+            document.getElementById(correctOption).style.backgroundColor = "green"
+            playerScore++ //adding to player's score
+            indexNumber++ //adding 1 to index so has to display next question..
+            //set to delay question number till when next question loads
+            setTimeout(() => {
+                questionNumber++
+            }, 1000)
+        }
+
+        else if (option.checked && option.value !== currentQuestionAnswer) {
+            const wrongLabelId = option.labels[0].id
+            document.getElementById(wrongLabelId).style.backgroundColor = "red"
+            document.getElementById(correctOption).style.backgroundColor = "green"
+            wrongAttempt++ //adds 1 to wrong attempts 
+            indexNumber++
+            //set to delay question number till when next question loads
+            setTimeout(() => {
+                questionNumber++
+            }, 1000)
+        }
+    })
+}
+
+
+
+//called when the next button is called
+function handleNextQuestion() {
+    checkForAnswer() //check if player picked right or wrong option
+    unCheckRadioButtons()
+    //delays next question displaying for a second just for some effects so questions don't rush in on player
+    setTimeout(() => {
+        if (indexNumber <= 4) {
+//displays next question as long as index number isn't greater than 9, remember index number starts from 0, so index 9 is question 10
+            NextQuestion(indexNumber)
+        }
+        else {
+            handleEndGame()//ends game if index number greater than 9 meaning we're already at the 10th question
+        }
+        resetOptionBackground()
+    }, 1000);
+}
+
+//sets options background back to null after display the right/wrong colors
+function resetOptionBackground() {
+    const options = document.getElementsByName("option");
+    options.forEach((option) => {
+        document.getElementById(option.labels[0].id).style.backgroundColor = ""
+    })
+}
+
+// unchecking all radio buttons for next question(can be done with map or foreach loop also)
+function unCheckRadioButtons() {
+    const options = document.getElementsByName("option");
+    for (let i = 0; i < options.length; i++) {
+        options[i].checked = false;
+    }
+}
+
+// function for when all questions being answered
+function handleEndGame() {
+    let remark = null
+    let remarkColor = null
+
+    // condition check for player remark and remark color
+    if (playerScore <= 1) {
+        remark = "Bad Grades, Keep Practicing."
+        remarkColor = "red"
+    }
+    else if (playerScore >= 2 && playerScore < 4) {
+        remark = "Average Grades, You can do better."
+        remarkColor = "orange"
+    }
+    else if (playerScore >= 4) {
+        remark = "Excellent, Keep the good work going."
+        remarkColor = "green"
+    }
+    const playerGrade = (playerScore / 5) * 100
+
+    //data to display to score board
+    document.getElementById('remarks').innerHTML = remark
+    document.getElementById('remarks').style.color = remarkColor
+    document.getElementById('grade-percentage').innerHTML = playerGrade
+    document.getElementById('wrong-answers').innerHTML = wrongAttempt
+    document.getElementById('right-answers').innerHTML = playerScore
+    document.getElementById('score-modal').style.display = "flex"
+
+}
+
+//closes score modal, resets game and reshuffles questions
+function closeScoreModal() {
+    questionNumber = 1
+    playerScore = 0
+    wrongAttempt = 0
+    indexNumber = 0
+    shuffledQuestions = []
+    NextQuestion(indexNumber)
+    document.getElementById('score-modal').style.display = "none"
+}
+
+//function to close warning modal
+function closeOptionModal() {
+    document.getElementById('option-modal').style.display = "none"
+}
+        </script>
+        <title>Home Page - Computational Chemistry</title>
+
+    </head>
+
+    <body class="fade-in" style="margin: 0px;" onload="NextQuestion(0)">
+        <div class="container">
+            <div style="height: 50px; width: 30%; background-color: #888888;">
+                <h7>Numerical Simulation in Computational Chemistry @CS1102</h7>
+            </div>
+            <div style="height: 50px; width:70%; float: right; background-color: #888888;">
+                <div class="dropdown" style="float: right;" name="index_quiz">
+                    <button class="dropbtn">References</button>
+                        <div class="dropdown-content">
+                            <a href="reference.html">References</a>
+                        </div>
+                </div>
+                <div class="dropdown" style="float: right;" name="index_quiz">
+                    <button class="dropbtn">Quiz</button>
+                        <div class="dropdown-content">
+                            <a href="quiz.html">Quiz</a>
+                        </div>
+                </div>
+                <div class="dropdown" style="float: right;" name="index_examples">
+                    <button class="dropbtn">Examples</button>
+                        <div class="dropdown-content">
+                            <a href="covid19.html">COVID-19</a>
+                            <a href="lithiumIon.html">Lithium-Ion Battery</a>
+                        </div>
+                </div>
+                <div class="dropdown" style="float: right;" name="index_models">
+                    <button class="dropbtn">Models</button>
+                        <div class="dropdown-content">
+                            <a href="models.html">Models</a>
+                        </div>
+                </div>
+                <div class="dropdown" style="float: right;" name="index_ourfocus">
+                    <button class="dropbtn">Our Focus</button>
+                        <div class="dropdown-content">
+                            <a href="ourfocus.html">Our Focus</a>
+                            <a href="moleculardynamics.html">Molecular Dynamics</a>
+                            <a href="montecarlo.html">Monte Carlo</a>
+                        </div>
+                </div>
+                <div class="dropdown" style="float: right;" name="index_home">
+                    <button class="dropbtn">Home</button>
+                        <div class="dropdown-content">
+                            <a href="index.html">Home</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <main>
+        <!-- modal when quiz ends -->
+        <div class="modal-container" id="score-modal">
+
+            <div class="modal-content-container">
+
+                <h1>Congratulations, Quiz Completed.</h1>
+
+                <div class="grade-details">
+                    <p>Attempts : 5</p>
+                    <p>Wrong Answers : <span id="wrong-answers"></span></p>
+                    <p>Right Answers : <span id="right-answers"></span></p>
+                    <p>Grade : <span id="grade-percentage"></span>%</p>
+                    <p ><span id="remarks"></span></p>
+                </div>
+
+                <div class="modal-button-container">
+                    <button onclick="closeScoreModal()">Continue</button>
+                </div>
+
+            </div>
+        </div>
+        <!-- end details-->
+
+        <div class="game-quiz-container">
+
+            <div class="game-details-container">
+                <h1>Score : <span id="player-score"></span> / 5</h1>
+                <h1> Question : <span id="question-number"></span> / 5</h1>
+            </div>
+
+            <div class="game-question-container">
+                <h1 id="display-question"></h1>
+            </div>
+
+            <div class="game-options-container">
+
+               <div class="modal-container" id="option-modal">
+
+                    <div class="modal-content-container">
+                         <h1>Please Pick An Option</h1>
+
+                         <div class="modal-button-container">
+                            <button onclick="closeOptionModal()">Continue</button>
+                        </div>
+
+                    </div>
+
+               </div>
+
+                <span>
+                    <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                    <label for="option-one" class="option" id="option-one-label"></label>
+                </span>
+
+
+                <span>
+                    <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                    <label for="option-two" class="option" id="option-two-label"></label>
+                </span>
+
+
+                <span>
+                    <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                    <label for="option-three" class="option" id="option-three-label"></label>
+                </span>
+
+
+                <span>
+                    <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                    <label for="option-four" class="option" id="option-four-label"></label>
+                </span>
+
+
+            </div>
+
+            <div class="next-button-container">
+                <button onclick="handleNextQuestion()">Next Question</button>
+            </div>
+
+        </div>
+    </main>
+    </body>
+</html>
