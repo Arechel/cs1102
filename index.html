@@ -4,6 +4,25 @@
         <style>
 
 /* dropdown menu */
+
+.myDiv {
+    position: relative;
+    z-index: 1;
+}
+
+.myDiv .bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url(https://www.evotec.com/uploads/images/A-SciencePool_Images/Articles_and_Whitepaper_Images/_stageImageSmallSize/Molecule-blue_science-pool.jpg) center center;
+    opacity: .3;
+    width: 100%;
+    height: 100%;
+}
+
 .dropbtn {
   background-color: #888888;
   color: black;
@@ -14,6 +33,7 @@
 
 .dropdown {
   position: relative;
+  z-index: 2;
   ;
 }
 
@@ -132,27 +152,39 @@ p:hover {
             </div>
         </div>
 
-        <center class="fade-in" style="margin: 20px;">
-            <img src="https://www.evotec.com/uploads/images/A-SciencePool_Images/Articles_and_Whitepaper_Images/_stageImageSmallSize/Molecule-blue_science-pool.jpg" style="height: 300px;">
-        </center>
-        
-        <center>
-        <div class="fade-in"><br><br>
-            <h1>What is Computational Chemistry?</h1>
-            <p style="font-size: 20px;"><b>Computational chemistry</b> is an area in chemistry <br>
-                that utilizes advanced mathematical algorithms to render and <u>predict the properties and behaviors of molecules and different systems.</u> <br>
-                 Using <b>computer science, physics, and mathematics</b>, <br>
-                 Computational chemistry allows us to solve chemical problems digitally instead of spending time recreating laboratory experiments and testing different solutions. </p>
-        </div>
-        <hr>
-        <div class="fade-in"><br><br>
-            <h1>Why is Computational Chemistry Needed?</h1>
-            <p style="font-size: 20px;"><b>Computation chemistry</b> is a necessity due to the many chemical problems we cannot solve efficiently, cost-effectively, or safely.<br>
-                 Physical experiments tend to be extremely expensive, time-consuming, and sometimes impossible.<br>
-                  Examples of this are highly radioactive, toxic, or potentially explosive chemicals that we would need to research. <br>
-                  Different computational methods are required to overcome these limitations and allow scientists to fully map molecules and predict structures at a microscopic level on the computer. <br>
-                  This would allow for faster drug discoveries, deeper scientific research, and quicker results that <b>could avoid disasters at a much higher rate such as Covid-19.</b> </p>
-        </div>
-        </center>
+    <div class="myDiv" style="height: 100vh;">
+        <div class="bg"></div>
+            <center class="fade-in">
+                <br><br>
+                <img src="https://www.evotec.com/uploads/images/A-SciencePool_Images/Articles_and_Whitepaper_Images/_stageImageSmallSize/Molecule-blue_science-pool.jpg" style="height: 300px;">
+            <div class="fade-in"><br><br>
+                <h1>What is Computational Chemistry?</h1>
+                <p style="font-size: 20px;"><b>Computational chemistry</b> is an area in chemistry <br>
+                    that utilizes advanced mathematical algorithms to render and <u>predict the properties and behaviors of molecules and different systems.</u> <br>
+                    Using <b>computer science, physics, and mathematics</b>, <br>
+                    Computational chemistry allows us to solve chemical problems digitally instead of spending time recreating laboratory experiments and testing different solutions. </p>
+            </div>
+            <hr>
+            <div class="fade-in"><br><br>
+                <h1>Why is Computational Chemistry Needed?</h1>
+                <p style="font-size: 20px;"><b>Computation chemistry</b> is a necessity due to the many chemical problems we cannot solve efficiently, cost-effectively, or safely.<br>
+                    Physical experiments tend to be extremely expensive, time-consuming, and sometimes impossible.<br>
+                    Examples of this are highly radioactive, toxic, or potentially explosive chemicals that we would need to research. <br>
+                    Different computational methods are required to overcome these limitations and allow scientists to fully map molecules and predict structures at a microscopic level on the computer. <br>
+                    This would allow for faster drug discoveries, deeper scientific research, and quicker results that <b>could avoid disasters at a much higher rate such as Covid-19.</b> </p>
+            </div>
+    </div>
+            <div>
+                <h4>
+                Group Number: 15<br>
+                Topic: 2b - Numerical Simulations in Computational Chemistry
+                Group Member:<br>
+                KOUSLOGLOU, Vangelis Gabriel Lao 59432940<br>
+                LEE, Chi Wang 59328675<br>
+                WONG Tsun Fung 58613415<br>
+                XIAO Chenxuan 59902211<br>
+                </h4>
+            </div>
+            </center>
     </body>
 </html>
