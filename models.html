@@ -4,6 +4,24 @@
         <style>
 
 /* dropdown menu */
+.myDiv {
+    position: relative;
+    z-index: 1;
+}
+
+.myDiv .bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url(https://www.evotec.com/uploads/images/A-SciencePool_Images/Articles_and_Whitepaper_Images/_stageImageSmallSize/Molecule-blue_science-pool.jpg) center center;
+    opacity: .3;
+    width: 100%;
+    height: 100%;
+}
+
 .dropbtn {
   background-color: #888888;
   color: black;
@@ -14,6 +32,7 @@
 
 .dropdown {
   position: relative;
+  z-index: 2;
   ;
 }
 
@@ -132,9 +151,11 @@ p:hover {
             </div>
         </div>
         
-        <div style="margin: 20px;">  
-            <div style="margin: 60px;">
-                <center>
+    <div class="myDiv" style="height: 100vh;">
+        <div class="bg"></div>
+        <div>
+            <br><br>
+            <center>
                 <h1>What are Force Fields? </h1><br>
                 <p style="font-size: 20px;">A force field is a mathematical equation that descrives the potential energy of a molecular system through its atomic position.<br>
                      It approximates the real quantum-mechanical energy landscape using classical mechanics, allowing simulations to run quickly even on millions of atoms.<br>
@@ -180,8 +201,8 @@ p:hover {
                             <th>Bond breaking/formation, variable connectivity</th>
                         </tr>
                     </table>
-                </center>
-                </div>
+            </center>
         </div>
+    </div>
     </body>
 </html>
