@@ -4,6 +4,24 @@
         <style>
 
 /* dropdown menu */
+.myDiv {
+    position: relative;
+    z-index: 1;
+}
+
+.myDiv .bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url(https://www.evotec.com/uploads/images/A-SciencePool_Images/Articles_and_Whitepaper_Images/_stageImageSmallSize/Molecule-blue_science-pool.jpg) center center;
+    opacity: .3;
+    width: 100%;
+    height: 100%;
+}
+
 .dropbtn {
   background-color: #888888;
   color: black;
@@ -14,6 +32,7 @@
 
 .dropdown {
   position: relative;
+  z-index: 2;
   ;
 }
 
@@ -132,8 +151,11 @@ p:hover {
             </div>
         </div>
 
-        <div class="fade-in"><br><br>
+    <div class="myDiv" style="height: 100vh;">
+        <div class="bg"></div>
+        <div class="fade-in">
             <center>
+                <br><br>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/MD_water.gif" style="height: 300px;">
                 <h1>What is Molecular Dynamics? </h1>
                 <p style="font-size: 20px;"><u>Molecular Dynamic is a method to simulate the time change of a system.</u> <br>
@@ -145,5 +167,6 @@ p:hover {
                     <h1>Check what is <a href="montecarlo.html">Monte Carlo</a></h1>
             </center>
         </div>
+    </div>
     </body>
 </html>
